@@ -3,4 +3,5 @@ export default () => ({
   environment: process.env.NODE_ENV,
   port: process.env.PORT,
   apiKey: process.env.X_API_KEY,
+  emailPassword: process.env.APPLICATION_SPECIFIC_EMAIL_PASSWORD,
 });

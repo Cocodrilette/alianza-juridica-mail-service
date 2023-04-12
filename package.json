@@ -29,6 +29,7 @@
     "@nestjs/platform-express": "^9.0.0",
     "@nestjs/serve-static": "^3.0.0",
     "@nestjs/typeorm": "^9.0.1",
+    "@sendinblue/client": "^3.3.1",
     "@types/passport": "^1.0.11",
     "@types/uuid": "^9.0.0",
     "class-transformer": "^0.5.1",
@@ -36,6 +37,7 @@
     "helmet": "^6.0.1",
     "joi": "^17.7.0",
     "minimist": "^1.2.7",
+    "nodemailer": "^6.9.1",
     "passport": "^0.6.0",
     "passport-headerapikey": "^1.2.2",
     "pg": "^8.8.0",
@@ -43,10 +45,8 @@
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
     "sharp": "^0.31.3",
-    "sib-api-v3-typescript": "^2.2.2",
     "typeorm": "^0.3.11",
-    "uuid": "^9.0.0",
-    "web3.storage": "^4.4.0"
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",
@@ -56,6 +56,7 @@
     "@types/jest": "28.1.8",
     "@types/multer": "^1.4.7",
     "@types/node": "^16.0.0",
+    "@types/nodemailer": "^6.4.7",
     "@types/supertest": "^2.0.11",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
