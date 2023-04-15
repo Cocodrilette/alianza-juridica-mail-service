@@ -2,6 +2,7 @@ import * as nodemailer from 'nodemailer';
 import { CreateMailDto } from '../dto/create-mail.dto';
 import { constants } from '../constants';
 import { InternalServerErrorException } from '@nestjs/common';
+import { htmlEmail } from './mail';
 
 interface MailOptions {
   from: string;
@@ -17,7 +18,7 @@ export class TransactionalEmailProvider {
     this.transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: constants.contact.email,
+        user: 'bot.alianzajuridica@gmail.com',
         pass: emailPassword,
       },
     });
@@ -28,7 +29,7 @@ export class TransactionalEmailProvider {
       from: constants.contact.email,
       to: createMailDto.email,
       subject: 'Confirmación de consulta',
-      html: `<h1>Hola ${createMailDto.fullName},</h1> <p>Hemos recibido su consulta, pronto nos pondremos en contacto con usted. <p><i>Este correo fue enviado automáticamente. Por favor no responder.</i></p>`,
+      html: htmlEmail(createMailDto.expIdentifier),
     };
 
     await this.sendMail(mailOptions);
@@ -41,8 +42,7 @@ export class TransactionalEmailProvider {
 
   private async sendMail(mailOptions: MailOptions) {
     try {
-      const info = await this.transporter.sendMail(mailOptions);
-      console.log('Message sent: %s', { info });
+      await this.transporter.sendMail(mailOptions);
     } catch (error) {
       throw new InternalServerErrorException(error);
     }
